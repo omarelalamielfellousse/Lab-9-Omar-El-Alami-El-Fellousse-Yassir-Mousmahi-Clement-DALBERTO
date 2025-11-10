@@ -16,11 +16,15 @@ spec:
     spec:
       volumes:
         # TODO complete
+        - name: html-volume
+          emptyDir: {}
       containers:
-      - name: nginx-container
-        image: nginx
-        ports:
-          - containerPort: 80
-            name: "http-server"
-        volumeMounts:
-          # TODO complete
+        - name: nginx-container
+          image: nginx
+          ports:
+            - containerPort: 80
+              name: "http-server"
+          volumeMounts:
+            # TODO complete
+            - name: html-volume
+              mountPath: /usr/share/nginx/html
